@@ -13,9 +13,6 @@ from app.schemas.schema import (
 
 from app.services.utils import generate_docx_stream
 
-# Import or define result_draft
-from app.services.docs.mfa import result_draft
-
 router = APIRouter(prefix="/docs")
 templates = Jinja2Templates(directory="templates")
 
@@ -316,4 +313,5 @@ def notice_preview(data: LegalNoticeSubmit):
 
 @router.post('/legalnotice_download')
 def notice_download(data: LegalNoticeSubmit):
+
     return handle_doc_request('legal_notice.html', data, True, "Legal_Notice.docx")    
