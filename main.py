@@ -29,9 +29,14 @@ app = FastAPI(
     lifespan=lifespan # <-- Assign the lifespan handler here
 )
 
+origins=[
+  "https://ai-legalmate.vercel.app"
+]
+
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -61,4 +66,5 @@ async def global_exception_handler(request: Request, exc: Exception):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="127.0.0.1", port=8003, reload=True)
+
 
