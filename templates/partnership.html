@@ -1,0 +1,45 @@
+DEED OF PARTNERSHIP
+
+This Deed of Partnership is made on this {{ execution_date }} at {{ place_of_execution }}.
+
+BETWEEN:
+
+{% for partner in partners %}
+{{ loop.index }}. {{ partner.name }}, residing at {{ partner.address }} (hereinafter referred to as the "Party of the {{ loop.index }}{% if loop.index == 1 %}st{% elif loop.index == 2 %}nd{% elif loop.index == 3 %}rd{% else %}th{% endif %} Part").
+{% endfor %}
+
+WHEREAS the parties have agreed to carry on the business of {{ business_activity }} in partnership under the name and style of M/s {{ firm_name }}.
+
+NOW THIS DEED WITNESSETH AS FOLLOWS:
+
+1. NAME AND PLACE
+The partnership business shall be carried on under the name {{ firm_name }} with its principal place of business at {{ firm_address }}.
+
+2. COMMENCEMENT
+The partnership business shall be deemed to have commenced on {{ start_date }}.
+
+3. CAPITAL CONTRIBUTION
+The capital of the firm shall be contributed by the partners as follows:
+{% for partner in partners %}
+- {{ partner.name }}: Rs. {{ partner.capital_contribution }}
+{% endfor %}
+
+4. PROFIT AND LOSS SHARING
+The net profits and losses of the partnership shall be divided among the partners in the following ratios:
+{% for partner in partners %}
+- {{ partner.name }}: {{ partner.profit_share_percentage }}%
+{% endfor %}
+
+5. BANK ACCOUNTS
+Bank accounts in the name of the firm shall be opened and operated jointly by all partners or as mutually agreed.
+
+6. DISSOLUTION
+The partnership is "At Will" and may be dissolved by any partner giving written notice to the other partners. Upon dissolution, the assets shall be liquidated and liabilities paid off before distributing the surplus.
+
+IN WITNESS WHEREOF, the partners have set their hands on the day and year first above written.
+
+SIGNATURES:
+
+{% for partner in partners %}
+{{ loop.index }}. ______________________ ({{ partner.name }})
+{% endfor %}

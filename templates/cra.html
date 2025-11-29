@@ -1,0 +1,140 @@
+COMMERCIAL RENTAL AGREEMENT
+
+This Commercial Rental Agreement is made and executed on this {{ execution_date }} at {{ place_of_execution }}.
+
+BETWEEN:
+{{ landlord.name }}, Son/Daughter/Wife of {{ landlord.parent_name }}, residing at {{ landlord.address }} (hereinafter referred to as the “LANDLORD” or “First Party”) of the ONE PART.
+
+AND
+{% if tenant.tenant_type == 'individual' %}
+{{ tenant.name }}, Son/Daughter/Wife of {{ tenant.parent_name }}, residing at {{ tenant.address }} (hereinafter referred to as the “TENANT” or “Second Party”) of the OTHER PART.
+{% else %}
+{{ tenant.organization_name }}, a company incorporated under the Companies Act, represented by its Authorized Signatory, {{ tenant.authorized_signatory }}, having its registered office at {{ tenant.address }} (hereinafter referred to as the “TENANT” or “Second Party”) of the OTHER PART.
+{% endif %}
+
+WHEREAS:
+A. The Landlord is the lawful owner of the commercial premises located at {{ premises_address }}, more particularly described in the Schedule hereunder (the “Demised Premises”).
+B. The Landlord has agreed to let and the Tenant has agreed to take on rent the Demised Premises, subject to the terms and conditions hereinafter appearing.
+
+NOW, THIS AGREEMENT WITNESSETH AS FOLLOWS:
+
+1. TERM OF AGREEMENT & RENT
+1.1. The lease shall commence from {{ start_date }} and shall remain in force for a period ending on {{ end_date }}.
+1.2. The Tenant shall pay a monthly rent of Rs. {{ rent_amount }}/- (Rupees {{ rent_amount_in_words }} Only).
+1.3. The rent shall be paid on or before the {{ rent_due_day }}{% if rent_due_day == 1 %}st{% elif rent_due_day == 2 %}nd{% elif rent_due_day == 3 %}rd{% else %}th{% endif %} day of every calendar month.
+
+2. SECURITY DEPOSIT
+2.1. The Tenant has deposited a sum of Rs. {{ security_deposit_amount }}/- (Rupees {{ security_deposit_in_words }} Only) as an interest-free refundable security deposit.
+2.2. This security deposit shall be refunded to the Tenant within {{ security_deposit_refund_period_days }} days of vacating the Demised Premises, after deducting any arrears of rent, electricity charges, or cost of damages caused to the property.
+
+3. USE OF PREMISES
+3.1. The Tenant shall use the Demised Premises for the sole purpose of: {{ permitted_business_use }}.
+3.2. The Tenant shall not use the Demised Premises for any illegal, immoral, or unauthorized purposes.
+3.3. The Tenant shall not store any hazardous or inflammable materials in the Demised Premises without the necessary statutory approvals.
+
+4. MAINTENANCE, REPAIRS & ALTERATIONS
+4.1. The Tenant shall be responsible for all routine and minor repairs and maintenance of the Demised Premises.
+4.2. The Landlord shall be responsible for major and structural repairs, provided such damage is not caused by the Tenant's negligence.
+4.3. The Tenant shall not make any structural alterations to the Demised Premises without the prior written consent of the Landlord.
+
+5. UTILITIES & TAXES
+5.1. The Tenant shall be solely responsible for the timely payment of all charges for electricity, water, internet, and any other utilities consumed on the Demised Premises.
+5.2. The Landlord shall be responsible for the payment of all property taxes and other similar government levies assessed against the Demised Premises.
+
+6. INSURANCE
+6.1. The Landlord shall keep the structure of the Demised Premises insured against risks such as fire, earthquake, and other perils.
+6.2. The Tenant shall be responsible for insuring their own goods, furniture, fixtures, stock-in-trade, and other assets stored or used within the Demised Premises against theft, fire, and other risks.
+
+7. INDEMNITY
+The Tenant agrees to indemnify and hold harmless the Landlord from and against any and all claims, damages, or liabilities arising from any breach of this Agreement by the Tenant or from any act of negligence of the Tenant, its agents, or employees.
+
+8. FORCE MAJEURE
+Neither party shall be liable for any failure to perform their obligations due to a Force Majeure Event, including but not limited to acts of God, war, government-mandated lockdowns, or other events beyond their reasonable control.
+
+9. LANDLORD'S RIGHT OF ACCESS
+The Landlord or their authorized representatives shall have the right to enter the Demised Premises at reasonable times with prior notice for inspection or repairs, except in an emergency.
+
+10. SUBLETTING, ASSIGNMENT, AND TRANSFER
+The Tenant shall not sublet, assign, or otherwise transfer possession of the Demised Premises without the prior express written consent of the Landlord.
+
+11. RENEWAL AND HOLDING OVER
+11.1. This Agreement may be renewed for a further term upon mutual agreement between the Parties on fresh terms and conditions.
+11.2. The Tenant must provide a written notice to the Landlord expressing their intent to renew at least 3 months prior to the expiry of the current term.
+11.3. If the Tenant continues to occupy the premises after the expiry of the term without a formal renewal, such holding over shall be deemed a month-to-month tenancy terminable by 30 days' notice.
+
+12. TERMINATION & VACATING
+12.1. There shall be a lock-in period of {{ lock_in_period_months }} months from the start date, during which the Tenant cannot terminate this Agreement.
+12.2. After the expiry of the lock-in period, either party may terminate this Agreement by giving {{ notice_period_months }} months' written notice to the other party.
+
+13. GOVERNING LAW & DISPUTE RESOLUTION
+This Agreement shall be governed by the laws of India. Any dispute shall be settled by arbitration in {{ place_of_execution }} under the Arbitration and Conciliation Act, 1996, before resorting to the exclusive jurisdiction of the courts in that city.
+
+14. SCHEDULE: DESCRIPTION OF THE DEMISED PREMISES
+All that piece and parcel of the commercial premises located at:
+- Address: {{ premises_address }}
+- Bounded by:
+- North: {{ premises_boundaries.north }}
+- South: {{ premises_boundaries.south }}
+- East: {{ premises_boundaries.east }}
+- West: {{ premises_boundaries.west }}
+
+IN WITNESS WHEREOF, the parties hereto have executed this Agreement on the date first above written.
+
+LANDLORD (First Party)
+
+_________________________
+Name: {{ landlord.name }}
+
+TENANT (Second Party)
+{% if tenant.tenant_type == 'individual' %}
+_________________________
+Name: {{ tenant.name }}
+{% else %}
+For and on behalf of {{ tenant.organization_name }}
+
+_________________________
+Authorized Signatory: {{ tenant.authorized_signatory }}
+{% endif %}
+
+WITNESSES:
+1. For First Party
+_________________________
+Name:
+Address:
+
+2. For Second Party
+_________________________
+Name:
+Address:
+
+ADVOCATES:
+1. For First Party
+_________________________
+Name:
+Bar Council Reg. No.:
+
+2. For Second Party
+_________________________
+Name:
+Bar Council Reg. No.:
+
+SIGNED, SEALED AND DELIVERED by the Parties in the presence of the Notary Public.
+
+_________________________
+NOTARY PUBLIC
+
+ANNEXURE - LIST OF SUPPORTING DOCUMENTS
+{% if tenant.tenant_type == 'individual' %}
+1. Copy of PAN Card of Landlord.
+2. Copy of Aadhaar Card/ID Proof of Landlord.
+3. Proof of Ownership of Premises (Electricity Bill/Tax Receipt).
+4. Copy of PAN Card of Tenant.
+5. Copy of Aadhaar Card/ID Proof of Tenant.
+{% else %}
+1. Copy of PAN Card of Landlord.
+2. Proof of Ownership of Premises (Electricity Bill/Tax Receipt).
+3. Copy of Certificate of Incorporation/Registration of the Tenant Company.
+4. Copy of Board Resolution/Letter of Authority for the Authorized Signatory.
+5. Copy of PAN Card of the Tenant Company.
+6. Copy of ID Proof (Aadhaar/PAN) of the Authorized Signatory.
+{% endif %}

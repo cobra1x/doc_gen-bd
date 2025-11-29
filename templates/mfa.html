@@ -1,0 +1,141 @@
+MARITAL FINANCIAL ARRANGEMENT (MFA)
+This Marital Financial Arrangement is made on this {{ execution_date }} at {{ place_of_execution }}.
+BETWEEN:
+PARTY ONE:
+Name: {{ partyOne.personal.name }}
+Gender: {{ partyOne.personal.gender }}
+Father's Name: {{ partyOne.personal.father_name  }}
+Mother's Name: {{ partyOne.personal.mother_name }}
+Date of Birth: {{ partyOne.personal.dob }}
+Address: {{ partyOne.personal.address }}
+Occupation: {{ partyOne.employment.occupation  }}
+Employer: {{ partyOne.employment.employer  }}
+Annual Income: {{ partyOne.employment.annual_income  }}
+
+AND
+
+PARTY TWO:
+Name: {{ partyTwo.personal.name }}
+Gender: {{ partyTwo.personal.gender }}
+Father's Name: {{ partyTwo.personal.father_name  }}
+Mother's Name: {{ partyTwo.personal.mother_name  }}
+Date of Birth: {{ partyTwo.personal.dob }}
+Address: {{ partyTwo.personal.address }}
+Occupation: {{ partyTwo.employment.occupation }}
+Employer: {{ partyTwo.employment.employer }}
+Annual Income: {{ partyTwo.employment.annual_income  }}
+
+RECITALS
+1. The Parties intend to marry on {{ marriage_date }}.
+2. The Parties wish to record their financial positions and agree their rights and obligations regarding assets and liabilities in contemplation of the marriage.
+
+SCHEDULE A — ASSETS
+ASSETS OF PARTY ONE ({{ partyOne.personal.name }}):
+Real Estate:
+{% if partyOne.assets.real_estate %}
+{% for r in partyOne.assets.real_estate %}
+- Address: {{ r.address or "_____" }} — Value: {{ r.value }} — Pre-marital: {{ "Yes" if r.is_pre_marital else "No" }}
+{% endfor %}
+{% else %}
+- None declared.
+{% endif %}
+
+Bank Accounts:
+{% if partyOne.assets.bank_account %}
+{% for b in partyOne.assets.bank_account %}
+- Bank: {{ b.bank_name}} — Account No.: {{ b.account_number }} — Balance: {{ b.balance }}
+{% endfor %}
+{% else %}
+- None declared.
+{% endif %}
+
+Investments:
+{% if partyOne.assets.investment %}
+{% for inv in partyOne.assets.investment %}
+- Type: {{ inv.type }} — Company: {{ inv.company }} — Value: {{ inv.value }} — Pre-marital: {{ "Yes" if inv.is_pre_marital else "No" }}
+{% endfor %}
+{% else %}
+- None declared.
+{% endif %}
+
+ASSETS OF PARTY TWO ({{ partyTwo.personal.name }}):
+Real Estate:
+{% if partyTwo.assets.real_estate %}
+{% for r in partyTwo.assets.real_estate %}
+- Address: {{ r.address }} — Value: {{ r.value }} — Pre-marital: {{ "Yes" if r.is_pre_marital else "No" }}
+{% endfor %}
+{% else %}
+- None declared.
+{% endif %}
+
+Bank Accounts:
+{% if partyTwo.assets.bank_account %}
+{% for b in partyTwo.assets.bank_account %}
+- Bank: {{ b.bank_name  }} — Account No.: {{ b.account_number }} — Balance: {{ b.balance }}
+{% endfor %}
+{% else %}
+- None declared.
+{% endif %}
+
+Investments:
+{% if partyTwo.assets.investment %}
+{% for inv in partyTwo.assets.investment %}
+- Type: {{ inv.type }} — Company: {{ inv.company  }} — Value: {{ inv.value }} — Pre-marital: {{ "Yes" if inv.is_pre_marital else "No" }}
+{% endfor %}
+{% else %}
+- None declared.
+{% endif %}
+
+
+SCHEDULE B — LIABILITIES
+
+LIABILITIES OF PARTY ONE ({{ partyOne.personal.name }}):
+{% if partyOne.liabilities.loans %}
+{% for loan in partyOne.liabilities.loans %}
+- Type: {{ loan.type }} — Amount: {{ loan.amount }} — Bank/Institution: {{ loan.bank }}
+{% endfor %}
+{% else %}
+- None declared.
+{% endif %}
+
+LIABILITIES OF PARTY TWO ({{ partyTwo.personal.name }}):
+{% if partyTwo.liabilities.loans %}
+{% for loan in partyTwo.liabilities.loans %}
+- Type: {{ loan.type }} — Amount: {{ loan.amount }} — Bank/Institution: {{ loan.bank }}
+{% endfor %}
+{% else %}
+- None declared.
+{% endif %}
+
+CLAUSES
+
+1. PRE-MARITAL PROPERTY
+Each Party shall retain sole ownership of assets marked Pre-marital above.
+2. JOINT PROPERTY
+Assets not marked as pre-marital that are acquired jointly during marriage shall be treated as joint property unless otherwise agreed in writing.
+3. CONTRACTUAL SUPPORT
+Any contractual support obligations (if agreed) will be as set out in a separate schedule/agreement.
+4. LIABILITIES & INDEMNITIES
+Each Party shall remain responsible for their individual liabilities listed above unless both Parties agree otherwise.
+5. DISPUTE RESOLUTION
+Disputes arising under this MFA shall be resolved by mutual discussion or by arbitration if parties so agree.
+6. GOVERNING LAW
+This MFA is governed by the laws of the jurisdiction in which it is executed.
+
+EXECUTION
+
+IN WITNESS WHEREOF the Parties have executed this Marital Financial Arrangement on the date first written above.
+
+PARTY ONE
+______________________
+Name: {{ partyOne.personal.name }}
+Date: __________________
+
+PARTY TWO
+______________________
+Name: {{ partyTwo.personal.name }}
+Date: __________________
+
+WITNESSES
+1. ______________________  Name: _____  Address: _____  Date: _____
+2. ______________________  Name: _____  Address: _____  Date: _____

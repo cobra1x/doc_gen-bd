@@ -1,0 +1,24 @@
+GENERAL AFFIDAVIT
+
+BEFORE THE NOTARY PUBLIC AT {{ place_of_execution }}
+
+I, {{ deponent_name }}, Son/Daughter of {{ deponent_father_name }}, aged about {{ deponent_age }} years, residing at {{ deponent_address }}, do hereby solemnly affirm and declare as follows:
+
+{% for paragraph in statement_paragraphs %}
+{{ loop.index }}. {{ paragraph }}
+{% endfor %}
+
+I state that the contents of this affidavit are true and correct to the best of my knowledge and belief, and nothing material has been concealed therefrom.
+
+DEPONENT
+______________________
+({{ deponent_name }})
+
+VERIFICATION
+
+Verified at {{ place_of_execution }} on this {{ verification_date }}, that the contents of the above affidavit are true and correct.
+
+DEPONENT
+______________________
+
+Attested by Notary Public

@@ -1,0 +1,68 @@
+DEED OF SALE
+
+This Deed of Sale is made and executed on this {{ execution_date }} at {{ place_of_execution }}.
+
+BETWEEN:
+{{ vendor.name }}, Son/Daughter/Wife of {{ vendor.parent_name }}, residing at {{ vendor.address }} (hereinafter referred to as the “VENDOR” or “First Party”) of the ONE PART.
+
+AND
+{{ vendee.name }}, Son/Daughter/Wife of {{ vendee.parent_name }}, residing at {{ vendee.address }} (hereinafter referred to as the “VENDEE” or “Second Party”) of the OTHER PART.
+
+WHEREAS:
+A. The VENDOR is the absolute owner and in possession of the property described in the Schedule below (the "Schedule Property"), having acquired the same through {{ vendor_acquisition_method }}.
+B. The VENDOR has agreed to sell the Schedule Property and the VENDEE has agreed to purchase the same for a total sale consideration of Rs. {{ total_consideration }}/- (Rupees {{ total_consideration_in_words }} Only), free from all encumbrances.
+
+NOW THIS DEED WITNESSETH AS FOLLOWS:
+
+1. CONSIDERATION
+1.1. That in pursuance of this Agreement, the total sale consideration for the Schedule Property is fixed at Rs. {{ total_consideration }}/- (Rupees {{ total_consideration_in_words }} Only).
+1.2. The VENDEE has paid the said amount to the VENDOR as per the following details:
+{% for payment in payment_details %}
+   ({{ loop.index }}) Rs. {{ payment.amount }}/- via {{ payment.mode }} ({{ payment.details }}).
+{% endfor %}
+1.3. The VENDOR hereby acknowledges the receipt of the full and final consideration amount.
+
+2. TRANSFER OF TITLE AND POSSESSION
+That the VENDOR does hereby grant, convey, sell, and transfer unto the VENDEE, absolutely and forever, all rights, title, interest, and ownership in the Schedule Property. The VENDOR has delivered the vacant and peaceful possession of the Schedule Property to the VENDEE.
+
+3. VENDOR'S COVENANTS
+The VENDOR hereby covenants with the VENDEE as follows:
+3.1. Right to Convey: The VENDOR has the absolute right and full power to sell and convey the Schedule Property to the VENDEE.
+3.2. Quiet Enjoyment: The VENDEE shall peacefully and quietly possess and enjoy the Schedule Property without any claim or disturbance from the VENDOR or any person claiming under them.
+3.3. Free from Encumbrances: The Schedule Property is free from all kinds of encumbrances, such as liens, mortgages, charges, court attachments, and claims. All taxes and dues on the property have been paid up to the date of execution of this deed.
+3.4. Further Assurance: The VENDOR shall, at the request and cost of the VENDEE, execute any further deeds or documents required to more perfectly assure the title of the Schedule Property to the VENDEE.
+
+4. INDEMNITY
+The VENDOR hereby indemnifies and agrees to keep the VENDEE indemnified against any loss, damages, or costs incurred by the VENDEE as a result of any defect in the VENDOR's title to the Schedule Property.
+
+5. STAMP DUTY AND REGISTRATION
+All expenses towards Stamp Duty, registration charges, and other incidental expenses for the execution and registration of this Deed of Sale shall be borne and paid by the VENDEE.
+
+SCHEDULE OF PROPERTY
+All that piece and parcel of the property located at: {{ property_address }}.
+Bounded by:
+- North: {{ property_boundaries.north }}
+- South: {{ property_boundaries.south }}
+- East: {{ property_boundaries.east }}
+- West: {{ property_boundaries.west }}
+
+IN WITNESS WHEREOF, the parties have set their hands on the day, month, and year first above written.
+
+VENDOR (First Party)
+
+_________________________
+Name: {{ vendor.name }}
+
+VENDEE (Second Party)
+
+_________________________
+Name: {{ vendee.name }}
+
+WITNESSES:
+1. _________________________
+   Name:
+   Address:
+
+2. _________________________
+   Name:
+   Address:

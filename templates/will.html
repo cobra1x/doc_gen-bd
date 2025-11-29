@@ -1,0 +1,71 @@
+LAST WILL AND TESTAMENT OF {{ testator_name }}
+
+1. DECLARATION
+I, {{ testator_name }}, Son/Daughter/Wife of {{ testator_father_name }}, aged about {{ testator_age }} years, residing at {{ testator_address }}, do hereby make, publish, and declare this to be my Last Will and Testament. I declare that I am of sound mind, memory, and understanding, and I am making this Will voluntarily, without any coercion, fraud, or undue influence from anyone.
+
+2. REVOCATION OF PRIOR WILLS
+I hereby revoke all former Wills, Codicils, and other testamentary dispositions made by me.
+
+3. APPOINTMENT OF EXECUTOR(S)
+{% if executors|length > 1 %}
+I hereby appoint the following persons as the joint Executors of this Will:
+{% for executor in executors %}
+3.{{ loop.index }}. {{ executor.name }}, {{ executor.relationship }} of the Testator, residing at {{ executor.address }}.
+{% endfor %}
+{% elif executors|length == 1 %}
+I hereby appoint {{ executors[0].name }}, {{ executors[0].relationship }} of the Testator, residing at {{ executors[0].address }}, as the sole Executor of this Will.
+{% else %}
+I hereby appoint ______________________________, ______________________________ of the Testator, residing at ______________________________, as the sole Executor of this Will.
+{% endif %}
+
+4. BEQUESTS OF PROPERTY
+I hereby give, devise, and bequeath my assets as follows:
+{% for bequest in bequests %}
+4.{{ loop.index }}. I give, devise, and bequeath my {{ bequest.asset_description }} to {{ bequest.beneficiary_name }}.
+{% endfor %}
+
+5. RESIDUARY ESTATE
+I give, devise, and bequeath all the rest, residue, and remainder of my estate, both real and personal, of whatever nature and wherever situated, which I may own or have the right to dispose of at the time of my death, to {{ residuary_beneficiary_name }}.
+
+{% if guardian %}
+6. APPOINTMENT OF GUARDIAN
+In the event that I am the sole surviving parent/guardian of any minor children at the time of my death, I hereby appoint {{ guardian.name }}, {{ guardian.relationship }} of the minor(s), residing at {{ guardian.address }}, as the legal Guardian of the person and property of such minor children.
+{% endif %}
+
+{% if guardian %}7{% else %}6{% endif %}. POWERS OF EXECUTOR
+I grant to my Executor(s) full power and authority to sell, lease, mortgage, or otherwise dispose of any and all of my estate, whether real or personal, at public or private sale, for such prices and upon such terms as they may deem proper, and to manage, invest, and reinvest the proceeds thereof without the necessity of any court order, unless specifically required by law.
+
+{% if guardian %}8{% else %}7{% endif %}. NO SURETY OR BOND
+I direct that my Executor(s) shall be permitted to serve without furnishing any surety, bond, or other security in any jurisdiction.
+
+IN WITNESS WHEREOF, I have set my hand to this, my last Will and Testament, at {{ place_of_execution }} on this {{ execution_date }}.
+
+TESTATOR
+
+________________________
+({{ testator_name }})
+
+ATTESTATION CLAUSE
+Signed by the above-named Testator, {{ testator_name }}, as their last Will and Testament, in our presence, all of us being present at the same time, who at their request, in their presence, and in the presence of each other, have hereunto subscribed our names as witnesses.
+
+WITNESS 1:
+__________________
+Signature
+Name:
+Address:
+
+WITNESS 2:
+__________________
+Signature
+Name:
+Address:
+
+ATTESTED AND VERIFIED by the Testator in the presence of the Notary Public.
+
+_________________________
+NOTARY PUBLIC
+
+ANNEXURE - LIST OF SUPPORTING DOCUMENTS
+It is recommended that the following documents be annexed to this Will:
+1. Self-attested identity and address proof of the Testator and all appointed Executor(s).
+2. Proof of ownership for all assets mentioned in the bequests, such as Property Title Deeds, Vehicle Registration Certificates (RC), Share Certificates, and recent Bank Account statements.
